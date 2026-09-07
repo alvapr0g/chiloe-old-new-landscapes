@@ -1,0 +1,6 @@
+const comparison=document.querySelector('#comparison');
+const range=document.querySelector('#reveal');
+function setSplit(value){const n=Math.max(0,Math.min(100,Number(value)));range.value=n;comparison.style.setProperty('--split',n+'%');}
+range.addEventListener('input',()=>setSplit(range.value));
+comparison.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'){const r=comparison.getBoundingClientRect();setSplit((e.clientX-r.left)/r.width*100);}});
+document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>{const lang=button.dataset.lang;document.documentElement.lang=lang;document.querySelectorAll('[data-es]').forEach(el=>{el.innerHTML=el.dataset[lang];});document.querySelectorAll('[data-alt-es]').forEach(el=>el.alt=el.dataset[lang==='es'?'altEs':'altEn']);document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));range.setAttribute('aria-label',lang==='es'?'Proporción visible de la fotografía histórica':'Visible proportion of the historical photograph');document.querySelector('meta[name="description"]').content=lang==='es'?'Chiloé Old New Landscapes. Recuperar fotografías históricas y reencontrar sus paisajes en el presente.':'Chiloé Old New Landscapes. Recovering historical photographs and rediscovering their landscapes today.';}));
