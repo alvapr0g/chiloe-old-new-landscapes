@@ -1,7 +1,11 @@
 # Chiloé Old New Landscapes
 
-Bilingual landing page and visual archive for comparing historical photographs of Chiloé with the present.
+Versión A elegida: Álbum de memorias, con mejoras de contraste, accesibilidad y seguridad.
 
-## Local preview
+Abrir `dist/index.html` en un navegador. Este archivo es autónomo: incluye estilos, JavaScript, logo vectorial y ambas fotografías. No requiere instalar dependencias ni compilar.
 
-Open `dist/index.html` in a browser.
+Netlify publica `dist` según `netlify.toml`.
+
+Incluye español/inglés; comparación por cursor, barra y botones; navegación por teclado; colores explícitos; política CSP con hash del script. Al modificar el script, debe recalcularse su hash CSP.
+
+Las fotografías muestran escenas distintas de mingas. Fechas, lugares y créditos están pendientes de documentar.
